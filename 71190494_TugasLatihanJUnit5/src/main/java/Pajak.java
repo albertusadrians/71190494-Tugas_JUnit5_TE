@@ -1,6 +1,6 @@
 public class Pajak {
     public double getPajak(double salary){
-        if (salary >= 0 && salary < 4000000) {
+        if (salary >= 0 && salary <= 4000000) {
             return 0;
         } else if (salary > 4000000 && salary <= 15000000) {
             return 10;

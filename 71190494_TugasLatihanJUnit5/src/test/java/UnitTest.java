@@ -30,8 +30,7 @@ public class UnitTest {
                 Arguments.of(40f,999500000000f),
                 // Equivalence Class Nilai Error (Return -1)
                 Arguments.of(-1,-4000000),
-                Arguments.of(-1,1500000000000f),
-                Arguments.of(-1,4000000)
+                Arguments.of(-1,1500000000000f)
         );
     }
 
@@ -45,18 +44,18 @@ public class UnitTest {
     // BVA: Boundary Value Analysis Test Scenario
     private static Stream<Arguments> bvaTest(){
         return Stream.of(
-
-                // BVA untuk vEC 1 dan vEC 2: Terjadi error pada argumen kedua
-                // karena seharusnya pajak untuk salary 4.000.000 bernilai 0 bukan -1.
+                /*
+                // BVA untuk vEC 1 dan vEC 2
                 Arguments.of(true,3999999),
                 Arguments.of(true,4000000),
                 Arguments.of(false,4000001)
-                /*
+                 */
+
                 // BVA untuk vEC 2 dan vEC 3
                 Arguments.of(true,14999999),
                 Arguments.of(true,15000000),
                 Arguments.of(false,15000001)
-                 */
+
                 /*
                 // BVA untuk vEC 3 dan vEC 4
                 Arguments.of(true,39999999),
@@ -72,9 +71,9 @@ public class UnitTest {
     void parameterizedTestPajakBVA(boolean expected, double salary){
         assertNotNull(pajak);
         // BVA untuk vEC 1 dan vEC 2
-        Assertions.assertEquals(expected,pajak.getPajak(salary)==0);
+        // Assertions.assertEquals(expected,pajak.getPajak(salary)==0);
         // BVA untuk vEC 2 dan vEC 3
-        // Assertions.assertEquals(expected,pajak.getPajak(salary)==10);
+        Assertions.assertEquals(expected,pajak.getPajak(salary)==10);
         // BVA untuk vEC 3 dan vEC 4
         // Assertions.assertEquals(expected,pajak.getPajak(salary)==22);
     }
